@@ -10,7 +10,7 @@ SRC		=	ft_split_helper.c \
 			
 			
 OBJ = ${SRC:.c=.o}
-CC = cc
+CC = gcc
 CFLAGS = -Werror -Wall -Wextra -g
 LIBFT_DIR = ../Libft
 LIBFT = $(LIBFT_DIR)/libft.a

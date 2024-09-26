@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fel-ghaz <fel-ghaz@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hawayda <hawayda@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/22 12:18:29 by fel-ghaz          #+#    #+#             */
-/*   Updated: 2024/09/25 00:36:17 by fel-ghaz         ###   ########.fr       */
+/*   Updated: 2024/09/26 03:17:53 by hawayda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	get_token(char *str, int i, char **token)
 }
 int	get_separator(char *str, int i, char **token)
 {
-	int		start;
+	int	start;
 
 	start = i;
 	while (str[i] && is_separator(str, i))
@@ -43,7 +43,7 @@ int	get_separator(char *str, int i, char **token)
 	return (i);
 }
 
-int	add_token(t_token_data *data, char *token)
+int	add_token(data *data, char *token)
 {
 	data->tokens[data->count++] = token;
 	if (data->count >= data->size)
@@ -56,7 +56,7 @@ int	add_token(t_token_data *data, char *token)
 	return (1);
 }
 
-int	process_next_token(char *str, int i, t_token_data *data)
+int	process_next_token(char *str, int i, data *data)
 {
 	char	*token;
 
@@ -74,9 +74,9 @@ int	process_next_token(char *str, int i, t_token_data *data)
 
 char	**ft_split(char *str)
 {
-	int				i;
-	int				j;
-	t_token_data	data;
+	int		i;
+	int		j;
+	data	data;
 
 	i = 0;
 	j = 0;
