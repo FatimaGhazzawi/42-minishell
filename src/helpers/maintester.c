@@ -3,24 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   maintester.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fel-ghaz <fel-ghaz@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hawayda <hawayda@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 13:19:16 by fel-ghaz          #+#    #+#             */
-/*   Updated: 2024/09/25 21:59:09 by fel-ghaz         ###   ########.fr       */
+/*   Updated: 2024/09/27 00:44:55 by hawayda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "../../includes/minishell.h"
 
 // int	main(void)
 // {
-	// char	**tokens;
-	// int		i;
-	// char	*str;
+// char	**tokens;
+// int		i;
+// char	*str;
 
-	// str = "echo >> file.tt | \\\"ju\\\"grep|a < b >> w > "
-	// 	"| a \"pa\"|\"|ttern\"";
-	// tokens = ft_split(str);
+// str = "echo >> file.tt | \\\"ju\\\"grep|a < b >> w > "
+// 	"| a \"pa\"|\"|ttern\"";
+// tokens = ft_split(str);
 // 	i = 0;
 // 	if (!tokens)
 // 	{
@@ -36,15 +36,15 @@
 // 	free(tokens);
 // 	return (0);
 // }
-int main ()
+int	main(void)
 {
-	char	**tokens;
+	char **tokens;
 	// // int		i;
-	char	*str;
+	char *str;
 	// str = "cd Home";
 	str = "echo -n -n  \">>       file.tt\n |\n  \\\"ju\\\"grep|a < b >> w > \"";
 	// 	"| a \"pa\n\"|\"|ttern\" \n";
-	tokens = ft_split(str);
+	tokens = ft_split_charset(str);
 	ft_echo(tokens);
 	// ft_cd(str);
 }

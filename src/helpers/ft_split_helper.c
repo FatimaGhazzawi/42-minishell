@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split_helper.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fel-ghaz <fel-ghaz@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hawayda <hawayda@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 04:13:35 by fel-ghaz          #+#    #+#             */
-/*   Updated: 2024/09/25 00:36:11 by fel-ghaz         ###   ########.fr       */
+/*   Updated: 2024/09/26 23:31:30 by hawayda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "../../includes/minishell.h"
 
 int	check_space(char c)
 {
@@ -65,25 +65,24 @@ int	handle_quotes(char *str, int i, char *in_quote, int *handled)
 	}
 	return (i);
 }
-char *ft_strndup(const char *s, size_t n)
+char	*ft_strndup(const char *s, size_t n)
 {
-    size_t i;
-    size_t len;
-    char *dup;
+	size_t	i;
+	size_t	len;
+	char	*dup;
 
 	len = 0;
-    while (s[len] && len < n)
-        len++;
-    dup = (char *)malloc((len + 1) * sizeof(char));
-    if (!dup)
-        return (NULL);
-    i = 0;
-    while (i < len)
-    {
-        dup[i] = s[i];
-        i++;
-    }
-    dup[i] = '\0';
-    return (dup);
+	while (s[len] && len < n)
+		len++;
+	dup = (char *)malloc((len + 1) * sizeof(char));
+	if (!dup)
+		return (NULL);
+	i = 0;
+	while (i < len)
+	{
+		dup[i] = s[i];
+		i++;
+	}
+	dup[i] = '\0';
+	return (dup);
 }
-

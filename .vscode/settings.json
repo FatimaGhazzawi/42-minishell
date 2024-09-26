@@ -61,6 +61,13 @@
     "stdio.h": "c",
     "string.h": "c",
     "readline.h": "c",
-    "history.h": "c"
+    "history.h": "c",
+    "libft.h": "c",
+    "stdlib.h": "c",
+    "signal.h": "c",
+    "stat.h": "c",
+    "minishell.h": "c",
+    "stdarg.h": "c",
+    "ft_printf.h": "c"
   }
 }

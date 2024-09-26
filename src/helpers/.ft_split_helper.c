@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split_helper.c                                  :+:      :+:    :+:   */
+/*   .ft_split_helper.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fel-ghaz <fel-ghaz@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hawayda <hawayda@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 23:01:26 by fel-ghaz          #+#    #+#             */
-/*   Updated: 2024/09/24 02:55:58 by fel-ghaz         ###   ########.fr       */
+/*   Updated: 2024/09/26 23:31:36 by hawayda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "../../includes/minishell.h"
 
 int	ft_strlen(char *str)
 {

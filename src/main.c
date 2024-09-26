@@ -6,11 +6,11 @@
 /*   By: hawayda <hawayda@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 02:38:42 by hawayda           #+#    #+#             */
-/*   Updated: 2024/09/26 06:00:48 by hawayda          ###   ########.fr       */
+/*   Updated: 2024/09/27 00:32:49 by hawayda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "../includes/minishell.h"
 
 int	main(int ac, char **av, char **env)
 {

@@ -1,19 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   header.h                                           :+:      :+:    :+:   */
+/*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hawayda <hawayda@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 23:09:17 by fel-ghaz          #+#    #+#             */
-/*   Updated: 2024/09/26 06:21:34 by hawayda          ###   ########.fr       */
+/*   Updated: 2024/09/27 00:43:43 by hawayda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HEADER_H
-# define HEADER_H
-// # define _XOPEN_SOURCE 700
+#ifndef MINISHELL_H
+# define MINISHELL_H
+# define _XOPEN_SOURCE 700
 
+# include "ft_printf/ft_printf.h"
+# include "libft/libft.h"
 # include <ctype.h>
 # include <errno.h>
 # include <fcntl.h>
@@ -57,7 +59,7 @@ void					ft_strcopy(char *dest, char *src);
 void					ft_strcat(char *dest, char *source);
 void					setup_signal_handlers(void);
 
-char					**ft_split(char *str);
+char					**ft_split_charset(char *str);
 char					*ft_strndup(const char *s, size_t n);
 
 int						check_space(char c);

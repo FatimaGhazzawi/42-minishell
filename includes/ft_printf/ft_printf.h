@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pwd.c                                           :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fel-ghaz <fel-ghaz@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hawayda <hawayda@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/25 03:04:17 by fel-ghaz          #+#    #+#             */
-/*   Updated: 2024/09/25 03:12:32 by fel-ghaz         ###   ########.fr       */
+/*   Created: 2024/06/16 20:29:03 by hawayda           #+#    #+#             */
+/*   Updated: 2024/09/26 23:45:13 by hawayda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
-//shou na2is fiya cases?
-void	ft_pwd()
-{
-	char *cwd;
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
-	cwd = getcwd (NULL, 0);
-	if (cwd != NULL)
-	{
-		printf("%s\n", cwd);
-		free(cwd);
-    }
-	else
-		printf("error getting cwd");
-}
+# include "../libft/libft.h"
+# include <stdarg.h>
+# include <stdlib.h>
+# include <unistd.h>
+
+int	ft_printf(const char *str, ...);
+
+#endif

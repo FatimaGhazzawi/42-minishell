@@ -6,11 +6,11 @@
 /*   By: hawayda <hawayda@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/22 12:18:29 by fel-ghaz          #+#    #+#             */
-/*   Updated: 2024/09/26 03:17:53 by hawayda          ###   ########.fr       */
+/*   Updated: 2024/09/27 00:44:10 by hawayda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "../../includes/minishell.h"
 
 int	get_token(char *str, int i, char **token)
 {
@@ -72,7 +72,7 @@ int	process_next_token(char *str, int i, data *data)
 	return (i);
 }
 
-char	**ft_split(char *str)
+char	**ft_split_charset(char *str)
 {
 	int		i;
 	int		j;
