@@ -1,8 +1,7 @@
 NAME =			minishell
 CC =			gcc
 AR =			ar rcs
-CFLAGS =		-g $(INCLUDES)
-INCLUDES=		-I ./includes/ft_printf -I ./includes/libft
+CFLAGS =		-g
 LIBFT_DIR =		includes/libft
 LIBFT =			$(LIBFT_DIR)/libft.a
 PRINTF_DIR =	includes/ft_printf
