@@ -6,7 +6,7 @@
 /*   By: hawayda <hawayda@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 03:04:17 by fel-ghaz          #+#    #+#             */
-/*   Updated: 2024/09/26 23:31:30 by hawayda          ###   ########.fr       */
+/*   Updated: 2024/09/27 01:35:17 by hawayda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ void	ft_pwd(void)
 	cwd = getcwd(NULL, 0);
 	if (cwd != NULL)
 	{
-		printf("%s\n", cwd);
+		ft_printf("%s\n", cwd);
 		free(cwd);
 	}
 	else
-		printf("error getting cwd");
+		ft_printf("error getting cwd");
 }

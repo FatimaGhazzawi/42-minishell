@@ -6,7 +6,7 @@
 /*   By: hawayda <hawayda@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 23:22:00 by hawayda           #+#    #+#             */
-/*   Updated: 2024/09/26 23:31:30 by hawayda          ###   ########.fr       */
+/*   Updated: 2024/09/27 01:36:28 by hawayda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,20 +36,20 @@ int	is_redirection_operator(char *str, int i)
 void	handle_redirection_operator(char *str, int *i, int *words)
 {
 	(*words)++;
-	printf("Redirection Operator '");
-	printf("%c", str[*i]);
+	ft_printf("Redirection Operator '");
+	ft_printf("%c", str[*i]);
 	(*i)++;
 	if (str[*i] == '>' || str[*i] == '<')
 	{
-		printf("%c", str[*i]);
+		ft_printf("%c", str[*i]);
 		(*i)++;
 	}
 	if (str[*i] == '&')
 	{
-		printf("%c", str[*i]);
+		ft_printf("%c", str[*i]);
 		(*i)++;
 	}
-	printf("' | Word count: %d\n", *words);
+	ft_printf("' | Word count: %d\n", *words);
 }
 
 void	handle_word(char *str, int *i, int *words)
@@ -58,14 +58,14 @@ void	handle_word(char *str, int *i, int *words)
 
 	in_quote = 0;
 	(*words)++;
-	printf("Word '");
+	ft_printf("Word '");
 	while (str[*i] && (!check_space(str[*i]) && !is_redirection_operator(str,
 				*i)))
 	{
 		if (str[*i] == '\\' && str[*i + 1])
 		{
 			(*i)++;
-			printf("%c", str[*i]);
+			ft_printf("%c", str[*i]);
 			(*i)++;
 			continue ;
 		}
@@ -76,12 +76,12 @@ void	handle_word(char *str, int *i, int *words)
 			else if (in_quote == str[*i])
 				in_quote = 0, (*i)++;
 			else
-				printf("%c", str[(*i)++]);
+				ft_printf("%c", str[(*i)++]);
 			continue ;
 		}
-		printf("%c", str[(*i)++]);
+		ft_printf("%c", str[(*i)++]);
 	}
-	printf("' | Word count: %d\n", *words);
+	ft_printf("' | Word count: %d\n", *words);
 }
 
 int	count_words(char *str)
@@ -124,12 +124,12 @@ int	main(void)
 	// int count5 = count_words(str5);
 	// int count6 = count_words(str6);
 	// int count7 = count_words(str7);
-	// printf("Total words/commands: %d\n", count1);
-	// printf("Total words/commands: %d\n", count2);
-	// printf("Total words/commands: %d\n", count3);
-	// printf("Total words/commands: %d\n", count4);
-	// printf("Total words/commands: %d\n", count5);
-	// printf("Total words/commands: %d\n", count6);
-	// printf("Total words/commands: %d\n", count7);
+	// ft_printf("Total words/commands: %d\n", count1);
+	// ft_printf("Total words/commands: %d\n", count2);
+	// ft_printf("Total words/commands: %d\n", count3);
+	// ft_printf("Total words/commands: %d\n", count4);
+	// ft_printf("Total words/commands: %d\n", count5);
+	// ft_printf("Total words/commands: %d\n", count6);
+	// ft_printf("Total words/commands: %d\n", count7);
 	return (0);
 }

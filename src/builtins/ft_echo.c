@@ -6,7 +6,7 @@
 /*   By: hawayda <hawayda@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 19:06:46 by fel-ghaz          #+#    #+#             */
-/*   Updated: 2024/09/26 23:31:30 by hawayda          ###   ########.fr       */
+/*   Updated: 2024/09/27 01:35:09 by hawayda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,33 +42,33 @@ void	ft_echo(char **splitted)
 		if (splitted[i][0] == '"')
 		{
 			j = 1;
-			printf("\"");
+			ft_printf("\"");
 			while (splitted[i][j] != '"' && splitted[i][j] != '\0')
 			{
 				if (splitted[i][j] == '\n' && count == 1)
-					printf("\\n");
+					ft_printf("\\n");
 				else
-					printf("%c", splitted[i][j]);
+					ft_printf("%c", splitted[i][j]);
 				j++;
 			}
 			if (splitted[i][j] == '"')
-				printf("\"");
+				ft_printf("\"");
 		}
 		else
 		{
 			while (splitted[i][j] != '\0')
 			{
 				if (splitted[i][j] == '\n' && count == 1)
-					printf("\\n");
+					ft_printf("\\n");
 				else
-					printf("%c", splitted[i][j]);
+					ft_printf("%c", splitted[i][j]);
 				j++;
 			}
 		}
 		if (splitted[i + 1] != NULL)
-			printf(" ");
+			ft_printf(" ");
 		i++;
 	}
 	if (count == 0)
-		printf("\n");
+		ft_printf("\n");
 }

@@ -6,7 +6,7 @@
 /*   By: hawayda <hawayda@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 13:19:16 by fel-ghaz          #+#    #+#             */
-/*   Updated: 2024/09/27 00:44:55 by hawayda          ###   ########.fr       */
+/*   Updated: 2024/09/27 01:36:34 by hawayda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,12 @@
 // 	i = 0;
 // 	if (!tokens)
 // 	{
-// 		fprintf(stderr, "Memory allocation failed\n");
+// 		ft_printf(stderr, "Memory allocation failed\n");
 // 		return (1);
 // 	}
 // 	while (tokens[i])
 // 	{
-// 		printf("Token %d: '%s'\n", i + 1, tokens[i]);
+// 		ft_printf("Token %d: '%s'\n", i + 1, tokens[i]);
 // 		free(tokens[i]);
 // 		i++;
 // 	}
