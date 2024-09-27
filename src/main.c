@@ -6,11 +6,23 @@
 /*   By: hawayda <hawayda@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 02:38:42 by hawayda           #+#    #+#             */
-/*   Updated: 2024/09/27 03:51:02 by hawayda          ###   ########.fr       */
+/*   Updated: 2024/09/27 05:56:12 by hawayda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
+
+// Handle cases when SHLVL and path are not created
+// Ensure uniqueness of keys in env
+t_env	*increment_shell_level(t_env *_env)
+{
+	char	*tmp;
+
+	tmp = get_node_value_by_key(_env, "SHLVL", (void *)(increment_node(1)));
+	tmp = ft_itoa(ft_atoi(tmp) + 1);
+	set_node_value_by_key(_env, "SHLVL", tmp);
+	return (_env);
+}
 
 void	fsh(char *input, data *_env)
 {
@@ -40,18 +52,18 @@ void	fsh(char *input, data *_env)
 
 int	main(int ac, char **av, char **env)
 {
-	char *input;
-	data *_env;
+	char	*input;
+	t_env	*_env;
+
 	(void)ac;
 	(void)av;
-	setup_signal_handlers();
-
 	input = NULL;
+	setup_signal_handlers();
 	// if (env[0] == NULL)
 	// 	env_cpy = create_env();
 	// else
 	// 	env_cpy = clone_env(env);
-	// env_cpy = add_shell_level(env_cpy);
+	_env = increment_shell_level(_env);
 	fsh(input, _env);
 	free(input);
 	// free_env_list(env_cpy);
