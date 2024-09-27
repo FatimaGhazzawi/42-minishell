@@ -6,7 +6,7 @@
 /*   By: hawayda <hawayda@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 03:16:33 by fel-ghaz          #+#    #+#             */
-/*   Updated: 2024/09/26 23:31:30 by hawayda          ###   ########.fr       */
+/*   Updated: 2024/09/27 01:34:59 by hawayda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	ft_cd(char *input)
 	pwd_env = NULL;
 	if (current_directory == NULL)
 	{
-		printf("Unable to get directory");
+		ft_printf("Unable to get directory");
 		return ;
 	}
 	if (input[0] == '/')
@@ -37,7 +37,7 @@ void	ft_cd(char *input)
 		ft_strcat(new_directory, input);
 	}
 	if (chdir(new_directory) != 0)
-		printf("errorr");
+		ft_printf("errorr");
 	else
 	{
 		ft_strcopy(pwd_env, "PWD=");

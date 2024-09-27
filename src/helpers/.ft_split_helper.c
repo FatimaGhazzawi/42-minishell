@@ -6,7 +6,7 @@
 /*   By: hawayda <hawayda@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 23:01:26 by fel-ghaz          #+#    #+#             */
-/*   Updated: 2024/09/26 23:31:36 by hawayda          ###   ########.fr       */
+/*   Updated: 2024/09/27 01:35:42 by hawayda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	check_single_tokens(char character)
 	if (character == '<' || character == '>' || character == '|'
 		|| character == ' ')
 	{
-		printf("single:%c\n", character);
+		ft_printf("single:%c\n", character);
 		return (1);
 	}
 	return (0);
@@ -43,7 +43,7 @@ int	check_double_tokens(char *str, int i)
 	if ((str[i] == '>' && str[i + 1] == '>') || (str[i] == '<' && str[i
 			+ 1] == '<'))
 	{
-		printf("double:%c%c\n", str[i], str[i + 1]);
+		ft_printf("double:%c%c\n", str[i], str[i + 1]);
 		return (1);
 	}
 	return (0);
@@ -73,7 +73,7 @@ int	count_tokens(char *str)
 			|| str[i] == ' ')
 		{
 			i++;
-			printf("hi");
+			ft_printf("hi");
 			count++;
 			while (str[i] && str[i] == ' ')
 				i++;
@@ -112,20 +112,20 @@ int	count_words(char *str, char *charset)
 					+ 1], charset)))
 		{
 			words++;
-			printf("%c%d\n", str[i], words);
+			ft_printf("%c%d\n", str[i], words);
 			i++;
 		}
 		else if (char_is_separator(str[i], charset))
 		{
 			words++;
-			printf("%c%d\n", str[i], words);
+			ft_printf("%c%d\n", str[i], words);
 		}
 		else if ((!char_is_separator(str[i], charset) && !check_space(str[i]))
 			&& (char_is_separator(str[i + 1], charset) || str[i + 1] == ' '
 				|| !str[i + 1]))
 		{
 			words++;
-			printf("%c%d\n", str[i], words);
+			ft_printf("%c%d\n", str[i], words);
 		}
 		i++;
 	}
@@ -141,5 +141,5 @@ int	main(void)
 	// char *str = "echo|hi|bbbbb >fffff";
 	charset = "|><";
 	count = count_words(str, charset);
-	printf("%d", count);
+	ft_printf("%d", count);
 }
