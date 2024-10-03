@@ -3,44 +3,78 @@
 /*                                                        :::      ::::::::   */
 /*   ft_cd.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hawayda <hawayda@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fel-ghaz <fel-ghaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 03:16:33 by fel-ghaz          #+#    #+#             */
-/*   Updated: 2024/09/27 01:34:59 by hawayda          ###   ########.fr       */
+/*   Updated: 2024/10/03 16:36:44 by fel-ghaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
-
-// ma zabatit
-// shou 3am tehke?
-void	ft_cd(char *input)
+//case 3 w case 7 ma zabato (bl main)
+void change_directory(const char *path)
 {
-	char	*current_directory;
-	char	*new_directory;
-	char	*pwd_env;
+    if (chdir(path) == 0)
+    {
+        setenv("OLDPWD", getenv("PWD"), 1);
+        char cwd[1024];
+        if (getcwd(cwd, sizeof(cwd)) != NULL)
+            setenv("PWD", cwd, 1);
+        else
+            perror("getcwd() error");
+    }
+    else
+    {
+        if (errno == ENOENT)
+            printf("bash: cd: %s: No such file or directory\n", path);
+        else if (errno == ENOTDIR)
+            printf("bash: cd: %s: Not a directory\n", path);
+        else
+            perror("cd");
+    }
+}
 
-	current_directory = getenv("PWD");
-	new_directory = NULL;
-	pwd_env = NULL;
-	if (current_directory == NULL)
-	{
-		ft_printf("Unable to get directory");
-		return ;
-	}
-	if (input[0] == '/')
-		ft_strcopy(new_directory, input);
-	else
-	{
-		ft_strcopy(new_directory, current_directory);
-		ft_strcat(new_directory, "/");
-		ft_strcat(new_directory, input);
-	}
-	if (chdir(new_directory) != 0)
-		ft_printf("errorr");
-	else
-	{
-		ft_strcopy(pwd_env, "PWD=");
-		ft_strcat(pwd_env, new_directory); // mazbut he l part??
-	}
+void ft_cd(char **args) 
+{
+    char *home_dir = getenv("HOME");
+    static char prev_dir[1024] = "";
+    char current_dir[1024];
+
+    if (!getcwd(current_dir, sizeof(current_dir)))
+    {
+        perror("getcwd");
+        return;
+    }
+    int arg_count = 0;
+    while (args[arg_count])
+        arg_count++;
+
+    if (arg_count == 1)
+    {
+        if (home_dir)
+            change_directory(home_dir);
+        else
+            printf("bash: cd: HOME not set\n");
+    }
+    else if (arg_count == 2)
+    {
+        if (strcmp(args[1], "-") == 0)
+        {
+            if (strlen(prev_dir) > 0)
+            {
+                printf("%s\n", prev_dir);
+                change_directory(prev_dir);
+            }
+            else
+                printf("bash: cd: OLDPWD not set\n");
+        }
+        else if (strcmp(args[1], "--") == 0)
+            printf("bash: cd: --: invalid option\n");
+        else
+            change_directory(args[1]);
+        strncpy(prev_dir, current_dir, sizeof(prev_dir) - 1);
+        prev_dir[sizeof(prev_dir) - 1] = '\0';
+    }
+    else
+        printf("bash: cd: too many arguments\n");
 }

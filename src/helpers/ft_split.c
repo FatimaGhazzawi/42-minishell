@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hawayda <hawayda@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fel-ghaz <fel-ghaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/22 12:18:29 by fel-ghaz          #+#    #+#             */
-/*   Updated: 2024/09/27 00:44:10 by hawayda          ###   ########.fr       */
+/*   Updated: 2024/10/03 15:19:21 by fel-ghaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	get_separator(char *str, int i, char **token)
 	return (i);
 }
 
-int	add_token(data *data, char *token)
+int	add_token(t_data *data, char *token)
 {
 	data->tokens[data->count++] = token;
 	if (data->count >= data->size)
@@ -56,7 +56,7 @@ int	add_token(data *data, char *token)
 	return (1);
 }
 
-int	process_next_token(char *str, int i, data *data)
+int	process_next_token(char *str, int i, t_data *data)
 {
 	char	*token;
 
@@ -76,7 +76,7 @@ char	**ft_split_charset(char *str)
 {
 	int		i;
 	int		j;
-	data	data;
+	t_data	data;
 
 	i = 0;
 	j = 0;

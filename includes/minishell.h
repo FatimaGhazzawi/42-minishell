@@ -3,17 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hawayda <hawayda@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fel-ghaz <fel-ghaz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 23:09:17 by fel-ghaz          #+#    #+#             */
+<<<<<<< Updated upstream
 /*   Updated: 2024/09/28 20:12:00 by hawayda          ###   ########.fr       */
+=======
+/*   Updated: 2024/10/03 16:32:38 by fel-ghaz         ###   ########.fr       */
+>>>>>>> Stashed changes
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINISHELL_H
 # define MINISHELL_H
 # define _XOPEN_SOURCE 700
-
+#endif
 # include "ft_printf/ft_printf.h"
 # include "libft/libft.h"
 # include <ctype.h>
@@ -37,12 +41,14 @@ typedef struct s_data
 {
 	char			**tokens;
 	char			*data;
+	char			*command;
+    char			**arguments;
 	struct s_data	*left;
 	struct s_data	*right;
 	int				count;
 	int				size;
 	int				SHLVL;
-}					data;
+}					t_data;
 
 typedef struct s_env
 {
@@ -51,6 +57,7 @@ typedef struct s_env
 	struct s_env	*next;
 }					t_env;
 
+<<<<<<< Updated upstream
 typedef enum e_ast_type {
     AST_COMMAND,
     AST_PIPE,
@@ -89,6 +96,8 @@ typedef struct s_ast_node {
         } redirection;
     };
 } t_ast_node;
+=======
+>>>>>>> Stashed changes
 
 // typedef struct nodee
 // {
@@ -97,10 +106,10 @@ typedef struct s_ast_node {
 // 	struct nodee	*previous;
 // }					t_node;
 
-void				ft_echo(char **splitted);
-void				ft_pwd(void);
-void				ft_exit(void);
-void				ft_cd(char *input);
+void				ft_echo(char **str);
+void				ft_pwd(char **args);
+void				ft_exit(char **args);
+void				ft_cd(char **args);
 void				ft_strcopy(char *dest, char *src);
 void				ft_strcat(char *dest, char *source);
 void				setup_signal_handlers(void);
@@ -115,8 +124,7 @@ int					handle_quotes(char *str, int i, char *in_quote,
 						int *handled);
 int					get_token(char *str, int i, char **token);
 int					get_separator(char *str, int i, char **token);
-int					add_token(data *data, char *token);
-int					process_next_token(char *str, int i, data *data);
+int					add_token(t_data *data, char *token);
+int					process_next_token(char *str, int i, t_data *data);
 int					ft_strcmp(char *s1, char *s2);
 
-#endif
